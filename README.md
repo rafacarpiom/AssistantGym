@@ -112,6 +112,6 @@ Esto asegura trazabilidad y justificación para la defensa del TFG.
 
 ## 📌 Autor
 
-**Juan Aliaga Navarro**  
+**Rafael Carpio Muñoz**  
 Grado en Ingeniería Informática  
 Universidad de XXXXX
