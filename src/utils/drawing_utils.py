@@ -1,7 +1,7 @@
 """
-Utilidades para dibujar keypoints y esqueletos en imágenes.
+Utilities for drawing keypoints and skeletons on images.
 """
 
-# TODO: Implementar funciones de dibujo
+# TODO: Implement drawing functions
 
 

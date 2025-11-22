@@ -1,7 +1,7 @@
 """
-Utilidades para cálculo de ángulos entre keypoints.
+Utilities for calculating angles between keypoints.
 """
 
-# TODO: Implementar funciones de cálculo de ángulos
+# TODO: Implement angle calculation functions
 
 

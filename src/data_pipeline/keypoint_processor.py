@@ -1,7 +1,7 @@
 """
-Procesamiento y normalización de keypoints.
+Keypoint processing and normalization.
 """
 
-# TODO: Implementar procesamiento de keypoints
+# TODO: Implement keypoint processing
 
 

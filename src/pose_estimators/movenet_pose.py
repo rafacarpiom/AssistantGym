@@ -1,7 +1,7 @@
 """
-Implementación de pose estimation usando MoveNet.
+Pose estimation implementation using MoveNet.
 """
 
-# TODO: Implementar MoveNet pose estimation
+# TODO: Implement MoveNet pose estimation
 
 

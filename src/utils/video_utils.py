@@ -1,7 +1,7 @@
 """
-Utilidades para procesamiento de vídeo.
+Utilities for video processing.
 """
 
-# TODO: Implementar funciones de utilidad para vídeo
+# TODO: Implement video utility functions
 
 

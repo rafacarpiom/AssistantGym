@@ -1,7 +1,7 @@
 """
-Extracción de frames de vídeos.
+Frame extraction from videos.
 """
 
-# TODO: Implementar extracción de frames
+# TODO: Implement frame extraction
 
 

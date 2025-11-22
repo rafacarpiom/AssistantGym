@@ -1,13 +1,13 @@
 """
-AssistantGym - Sistema de análisis de ejercicios mediante Pose Estimation
+AssistantGym - Exercise analysis system using Pose Estimation
 
-Punto de entrada principal del proyecto final.
+Main entry point of the final project.
 """
 
 def main():
-    """Función principal del proyecto."""
-    print("AssistantGym - Sistema de análisis de ejercicios")
-    # TODO: Implementar lógica principal
+    """Main function of the project."""
+    print("AssistantGym - Exercise analysis system")
+    # TODO: Implement main logic
 
 
 if __name__ == "__main__":

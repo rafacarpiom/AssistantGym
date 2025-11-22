@@ -1,7 +1,7 @@
 """
-Construcción del dataset a partir de vídeos procesados.
+Dataset construction from processed videos.
 """
 
-# TODO: Implementar construcción de dataset
+# TODO: Implement dataset construction
 
 

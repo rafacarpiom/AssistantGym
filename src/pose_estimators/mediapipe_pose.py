@@ -1,7 +1,7 @@
 """
-Implementación de pose estimation usando MediaPipe.
+Pose estimation implementation using MediaPipe.
 """
 
-# TODO: Implementar MediaPipe pose estimation
+# TODO: Implement MediaPipe pose estimation
 
 

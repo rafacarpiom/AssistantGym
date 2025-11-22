@@ -1,7 +1,7 @@
 """
-Implementación de pose estimation usando YOLO11 Pose.
+Pose estimation implementation using YOLO11 Pose.
 """
 
-# TODO: Implementar YOLO11 Pose estimation
+# TODO: Implement YOLO11 Pose estimation
 
 
