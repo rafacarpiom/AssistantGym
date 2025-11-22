@@ -5,22 +5,33 @@ Basic test to verify OpenCV functionality for video loading and frame extraction
 """
 
 import cv2
-import os
+from pathlib import Path
 
-# Video path (relative to project root)
-VIDEO_PATH = os.path.join("data", "raw", "Sentadilla.mp4")
+# Get project root
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+VIDEO_PATH = PROJECT_ROOT / "data" / "raw" / "Sentadilla.mp4"
 
-cap = cv2.VideoCapture(VIDEO_PATH)
+cap = cv2.VideoCapture(str(VIDEO_PATH))
 
 if not cap.isOpened():
     print("Error: Could not open video file")
     exit(1)
 
-print("Video opened successfully")
-print(f"FPS: {cap.get(cv2.CAP_PROP_FPS)}")
-print(f"Frame count: {int(cap.get(cv2.CAP_PROP_FRAME_COUNT))}")
-print(f"Width: {int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))}")
-print(f"Height: {int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))}")
+# Allow window resize
+cv2.namedWindow("Frame", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Frame", 480, 800)  # Adapt for vertical video
 
-# Release resources
+while True:
+    ret, frame = cap.read()
+
+    if not ret:
+        break
+
+    cv2.imshow("Frame", frame)
+
+    # 33 ms → ~30 FPS (video plays at real time)
+    if cv2.waitKey(33) & 0xFF == ord('q'):
+        break
+
 cap.release()
+cv2.destroyAllWindows()
