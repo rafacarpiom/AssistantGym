@@ -4,6 +4,9 @@ Esta guía recoge **todo lo que necesitas saber** para usar Git de forma profesi
 
 ---
 
+PARA PONER ENTORNO VIRTUAL
+.\venv\Scripts\activate
+
 ## 🟥 1. Los 10 comandos esenciales de Git
 
 ### 📌 Inicializar repositorio
