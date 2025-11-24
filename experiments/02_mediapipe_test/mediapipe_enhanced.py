@@ -1,20 +1,15 @@
 """
 Enhanced MediaPipe Pose experiment.
 
-Goal:
-- Same structure as mediapipe_basic.py
-- Add real-time FPS calculation
-- Show 7 key landmarks with precision (visibility) percentage
-- Highlight landmarks with color coding (green/yellow/red based on precision)
+Adds real-time FPS calculation and shows 7 key landmarks with precision
+(visibility) percentage. Highlights landmarks with color coding based on precision.
 """
 
-from pathlib import Path
 import time
+from pathlib import Path
 
 import cv2
 import mediapipe as mp
-
-# 1. Paths and video loading
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 VIDEO_PATH = PROJECT_ROOT / "data" / "raw" / "Sentadilla.mp4"
@@ -28,8 +23,6 @@ if not cap.isOpened():
     print(f"Error: Could not open video at {VIDEO_PATH}")
     exit(1)
 
-# 2. MediaPipe Pose setup
-
 mp_pose = mp.solutions.pose
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -42,15 +35,11 @@ pose = mp_pose.Pose(
     min_tracking_confidence=0.5,
 )
 
-# Window
 cv2.namedWindow("MediaPipe Pose - Enhanced", cv2.WINDOW_NORMAL)
 cv2.resizeWindow("MediaPipe Pose - Enhanced", 720, 1280)
 
-# FPS variables
 prev_time = time.time()
 fps = 0
-
-# 3. Main processing loop
 
 while True:
     ret, frame = cap.read()
@@ -65,18 +54,12 @@ while True:
         scale = max_display_width / w
         frame = cv2.resize(frame, (max_display_width, int(h * scale)))
 
-    # Convert BGR → RGB for MediaPipe
     image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     image_rgb.flags.writeable = False
-
     results = pose.process(image_rgb)
-
-    # Convert back to BGR
     image_rgb.flags.writeable = True
     output_frame = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2BGR)
 
-
-    # Draw pose landmarks
     if results.pose_landmarks:
         mp_drawing.draw_landmarks(
             output_frame,
@@ -85,7 +68,6 @@ while True:
             landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style(),
         )
 
-        # Show ID + visibility for 7 key joints
         keypoints_to_show = [
             mp_pose.PoseLandmark.LEFT_SHOULDER,
             mp_pose.PoseLandmark.LEFT_HIP,
@@ -177,8 +159,6 @@ while True:
                 color,  # Colored precision text
                 2,
             )
-        
-    # FPS Calculation 
     curr_time = time.time()
     fps = 1 / (curr_time - prev_time)
     prev_time = curr_time
@@ -193,13 +173,9 @@ while True:
         2,
     )
 
-    # Display frame
     cv2.imshow("MediaPipe Pose - Enhanced", output_frame)
-
     if cv2.waitKey(10) & 0xFF == ord("q"):
         break
-
-# 4. Clean up
 
 cap.release()
 cv2.destroyAllWindows()
